@@ -7,7 +7,7 @@ function cleanup() {
 }
 
 function start() {
-    source /opt/ai-dock/etc/environment.sh
+    source /opt/ailaby/etc/environment.sh
     if [[ ${SERVERLESS,,} != true ]]; then
         printf "Refusing to start serverless worker without \$SERVERLESS=true\n"
         exec sleep 10

@@ -1,6 +1,6 @@
 #!/bin/false
 
-source /opt/ai-dock/etc/environment.sh
+source /opt/ailaby/etc/environment.sh
 
 build_common_main() {
     build_common_create_env

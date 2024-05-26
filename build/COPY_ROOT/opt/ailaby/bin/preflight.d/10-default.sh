@@ -16,21 +16,21 @@ function preflight_serverless() {
 function preflight_copy_notebook() {
     if micromamba env list | grep 'jupyter' > /dev/null 2>&1;  then
         if [[ ! -f "${WORKSPACE}comfyui.ipynb" ]]; then
-            cp /usr/local/share/ai-dock/comfyui.ipynb ${WORKSPACE}
+            cp /usr/local/share/ailaby/ailaby-comfyui.ipynb ${WORKSPACE}
         fi
     fi
 }
 
 function preflight_update_comfyui() {
     if [[ ${AUTO_UPDATE,,} == "true" ]]; then
-        /opt/ai-dock/bin/update-comfyui.sh
+        /opt/ailaby/bin/update-comfyui.sh
     else
         printf "Skipping auto update (AUTO_UPDATE != true)"
     fi
 }
 
 # move this to base-image
-sudo chown user.ai-dock /var/log/timing_data
+sudo chown user.ailaby /var/log/timing_data
 
 if [[ ${SERVERLESS,,} != "true" ]]; then
     preflight_main "$@"

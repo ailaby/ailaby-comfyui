@@ -1,4 +1,3 @@
-version: "3.8"
 # Compose file build variables set in .env
 services:
   supervisor:
@@ -10,11 +9,11 @@ services:
         PYTORCH_VERSION: ${PYTORCH_VERSION:-2.2.2}
         COMFYUI_SHA: ${COMFYUI_SHA:-}
         # Base on Python image which is base + python + jupyter
-        IMAGE_BASE: ${IMAGE_BASE:-ghcr.io/ai-dock/python:${PYTHON_VERSION:-3.10}-cuda-11.8.0-runtime-22.04}
+        IMAGE_BASE: ${IMAGE_BASE:-ghcr.io/ailaby/ailaby-python:${PYTHON_VERSION:-3.10}-cuda-11.8.0-runtime-22.04}
       tags:
-        - "ghcr.io/ai-dock/comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.2.2}-py3.10-cuda-11.8.0-runtime-22.04}"
+        - "ghcr.io/ailaby/ailaby-comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.2.2}-py3.10-cuda-11.8.0-runtime-22.04}"
         
-    image: ghcr.io/ai-dock/comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.2.2}-py3.10-cuda-11.8.0-runtime-22.04}
+    image: ghcr.io/ailaby/ailaby-comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.2.2}-py3.10-cuda-11.8.0-runtime-22.04}
     
     ## For Nvidia GPU's - You probably want to uncomment this
     #deploy:
@@ -25,8 +24,8 @@ services:
     #          count: all
     #          capabilities: [gpu]
     
-    devices:
-      - "/dev/dri:/dev/dri"
+    #devices:
+      #- "/dev/dri:/dev/dri"
       ## For AMD GPU
       #- "/dev/kfd:/dev/kfd"
       
@@ -40,7 +39,7 @@ services:
       # Will echo to root-owned authorized_keys file;
       # Avoids changing local file owner
       - ./config/authorized_keys:/root/.ssh/authorized_keys_mount
-      - ./config/provisioning/default.sh:/opt/ai-dock/bin/provisioning.sh
+      - ./config/provisioning/default.sh:/opt/ailaby/bin/provisioning.sh
     ports:
         # SSH available on host machine port 2222 to avoid conflict. Change to suit
         - ${SSH_PORT_HOST:-2222}:22

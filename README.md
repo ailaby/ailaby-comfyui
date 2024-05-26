@@ -1,17 +1,17 @@
-[![Docker Build](https://github.com/ai-dock/comfyui/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ai-dock/comfyui/actions/workflows/docker-build.yml)
+[![Docker Build](https://github.com/ailaby/ailaby-comfyui/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ailaby/ailaby-comfyui/actions/workflows/docker-build.yml)
 
-# AI-Dock + ComfyUI Docker Image
+# AILaby + ComfyUI Docker Image
 
-Run [ComfyUI](https://github.com/comfyanonymous/ComfyUI) in a cloud-first AI-Dock container.
+Run [ComfyUI](https://github.com/comfyanonymous/ComfyUI) in a cloud-first AILaby container.
 
 >[!NOTE]
->These images do not bundle models or third-party configurations. You should use a [provisioning script](https://github.com/ai-dock/base-image/wiki/4.0-Running-the-Image#provisioning-script) to automatically configure your container. You can find examples in `config/provisioning`.
+>These images do not bundle models or third-party configurations. You should use a [provisioning script](https://github.com/ailaby/base-image/wiki/4.0-Running-the-Image#provisioning-script) to automatically configure your container. You can find examples in `config/provisioning`.
 
 ## Documentation
 
-All AI-Dock containers share a common base which is designed to make running on cloud services such as [vast.ai](https://link.ai-dock.org/vast.ai) and [runpod.io](https://link.ai-dock.org/template) as straightforward and user friendly as possible.
+All AILaby containers share a common base which is designed to make running on cloud services such as [vast.ai](https://link.ailaby.org/vast.ai) and [runpod.io](https://link.ailaby.org/template) as straightforward and user friendly as possible.
 
-Common features and options are documented in the [base wiki](https://github.com/ai-dock/base-image/wiki) but any additional features unique to this image will be detailed below.
+Common features and options are documented in the [base wiki](https://github.com/ailaby/base-image/wiki) but any additional features unique to this image will be detailed below.
 
 #### Version Tags
 
@@ -29,7 +29,7 @@ Tags follow these patterns:
 - `:cpu-[ubuntu-version]`
 
 
-Browse [here](https://github.com/ai-dock/comfyui/pkgs/container/comfyui) for an image suitable for your target environment.
+Browse [here](https://github.com/ailaby/ailaby-comfyui/pkgs/container/comfyui) for an image suitable for your target environment.
 
 
 Supported Platforms: `NVIDIA CUDA`, `AMD ROCm`, `CPU`
@@ -45,7 +45,7 @@ Supported Platforms: `NVIDIA CUDA`, `AMD ROCm`, `CPU`
 | `COMFYUI_PORT_HOST`      | ComfyUI interface port (default `8188`) |
 | `COMFYUI_URL`            | Override `$DIRECT_ADDRESS:port` with URL for ComfyUI |
 
-See the base environment variables [here](https://github.com/ai-dock/base-image/wiki/2.0-Environment-Variables) for more configuration options.
+See the base environment variables [here](https://github.com/ailaby/base-image/wiki/2.0-Environment-Variables) for more configuration options.
 
 ### Additional Micromamba Environments
 
@@ -55,11 +55,11 @@ See the base environment variables [here](https://github.com/ai-dock/base-image/
 
 This micromamba environment will be activated on shell login.
 
-See the base micromamba environments [here](https://github.com/ai-dock/base-image/wiki/1.0-Included-Software#installed-micromamba-environments).
+See the base micromamba environments [here](https://github.com/ailaby/base-image/wiki/1.0-Included-Software#installed-micromamba-environments).
 
 ## Additional Services
 
-The following services will be launched alongside the [default services](https://github.com/ai-dock/base-image/wiki/1.0-Included-Software) provided by the base image.
+The following services will be launched alongside the [default services](https://github.com/ailaby/base-image/wiki/1.0-Included-Software) provided by the base image.
 
 ### ComfyUI
 
@@ -74,11 +74,11 @@ To manage this service you can use `supervisorctl [start|stop|restart] comfyui`.
 
 ### ComfyUI RP API
 
-This service is available on port `8188` and is used to test the [RunPod serverless](https://link.ai-dock.org/runpod-serverless) API.
+This service is available on port `8188` and is used to test the [RunPod serverless](https://link.ailaby.org/runpod-serverless) API.
 
 You can access the api directly at `/rp-api/runsync` or you can use the Swager/openAPI playground at `/rp-api`.
 
-There are several [example payloads](https://github.com/ai-dock/comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads) included in this repository.
+There are several [example payloads](https://github.com/ailaby/ailaby-comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads) included in this repository.
 
 This API is available on all platforms - But the container can ony run in serverless mode on RunPod infrastructure.
 
@@ -87,32 +87,32 @@ To learn more about the serverless API see the [serverless section](#runpod-serv
 <details>
   <summary>API Playground</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ai-dock/comfyui/main/.github/images/api1.png">
+    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api1.png">
 </details>
 
 >[!NOTE]
->All services are password protected by default. See the [security](https://github.com/ai-dock/base-image/wiki#security) and [environment variables](https://github.com/ai-dock/base-image/wiki/2.0-Environment-Variables) documentation for more information.
+>All services are password protected by default. See the [security](https://github.com/ailaby/base-image/wiki#security) and [environment variables](https://github.com/ailaby/base-image/wiki/2.0-Environment-Variables) documentation for more information.
 
 ## Pre-Configured Templates
 
 **Vast.​ai**
 
-- [comfyui:latest-cuda](https://link.ai-dock.org/template-vast-comfyui)
+- [comfyui:latest-cuda](https://link.ailaby.org/template-vast-comfyui)
 
-- [comfyui:latest-rocm](https://link.ai-dock.org/template-vast-comfyui-rocm)
+- [comfyui:latest-rocm](https://link.ailaby.org/template-vast-comfyui-rocm)
 
 ---
 
 **Runpod.​io**
 
-- [comfyui:latest-cuda](https://link.ai-dock.org/template-runpod-comfyui)
+- [comfyui:latest-cuda](https://link.ailaby.org/template-runpod-comfyui)
 
 
 ---
 
 ## RunPod Serverless
 
-The container can be used as a [RunPod serverless](https://link.ai-dock.org/runpod-serverless) worker.  To enable serverless mode you must run the container with environment variables `SERVERLESS=true` and `WORKSPACE=/runpod-volume`.
+The container can be used as a [RunPod serverless](https://link.ailaby.org/runpod-serverless) worker.  To enable serverless mode you must run the container with environment variables `SERVERLESS=true` and `WORKSPACE=/runpod-volume`.
 
 The handlers will accept a job, process it and upload your images to s3 compatible storage.
 
@@ -123,14 +123,14 @@ You should set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_ENDPOINT_URL` 
 <details>
   <summary>Serverless template example</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ai-dock/comfyui/main/.github/images/runpod-template.png">
+    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/runpod-template.png">
 </details>
 
 If passed in the payload these variables should be in lowercase.
 
 Incorrect or unset s3 credentials will not resut in job failure. You can still retrieve your images from the network volume.
 
-When used in serverless mode, the container will skip provisioning and will not update ComfyUI or the nodes on start so you must either ensure everyting you need is built into the image (see [Building the Image](https://github.com/ai-dock/base-image/wiki/5.0-Building-the-Image)) or first run the container with a network volume in GPU Cloud to get everything set up before launching your workers.
+When used in serverless mode, the container will skip provisioning and will not update ComfyUI or the nodes on start so you must either ensure everyting you need is built into the image (see [Building the Image](https://github.com/ailaby/base-image/wiki/5.0-Building-the-Image)) or first run the container with a network volume in GPU Cloud to get everything set up before launching your workers.
 
 After launching a serverless worker, any instances of the container launched on the network volume in GPU cloud will also skip auto-updating. All updates must be done manually.
 
@@ -149,9 +149,9 @@ This is the most flexible of all handlers.
 <details>
   <summary>RawWorkflow schema</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ai-dock/comfyui/main/.github/images/api-schema-rawworkflow.png">
+    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api-schema-rawworkflow.png">
     <br>
-    <a target="_blank" href="https://raw.githubusercontent.com/ai-dock/comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/raw_controlnet_t2i_adapters.json">Example payload</a>
+    <a target="_blank" href="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/raw_controlnet_t2i_adapters.json">Example payload</a>
 </details>
 
 
@@ -164,9 +164,9 @@ You can define several overrides to modify the workflow before processing.
 <details>
   <summary>Text2Image schema</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ai-dock/comfyui/main/.github/images/api-schema-text2image.png">
+    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api-schema-text2image.png">
     <br>
-    <a target="_blank" href="https://raw.githubusercontent.com/ai-dock/comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_text2image.json">Example payload</a>
+    <a target="_blank" href="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_text2image.json">Example payload</a>
 
 </details>
 
@@ -179,15 +179,11 @@ You can define several overrides to modify the workflow before processing.
 <details>
   <summary>Image2Image schema</summary>
   <br>
-  <img src="https://raw.githubusercontent.com/ai-dock/comfyui/main/.github/images/api-schema-text2image.png">
+  <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api-schema-text2image.png">
   <br>
-  <a target="_blank" href="https://raw.githubusercontent.com/ai-dock/comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_image2image.json">Example payload</a>
+  <a target="_blank" href="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_image2image.json">Example payload</a>
 </details>
 
 These handlers demonstrate how you can create a simple endpoint which will require very little frontend work to implement.
 
-You can find example payloads for these handlers [here](https://github.com/ai-dock/comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads)
-
----
-
-_The author ([@robballantyne](https://github.com/robballantyne)) may be compensated if you sign up to services linked in this document. Testing multiple variants of GPU images in many different environments is both costly and time-consuming; This helps to offset costs_
+You can find example payloads for these handlers [here](https://github.com/ailaby/ailaby-comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads)

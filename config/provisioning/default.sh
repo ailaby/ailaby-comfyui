@@ -2,7 +2,7 @@
 
 # This file will be sourced in init.sh
 
-# https://raw.githubusercontent.com/ai-dock/comfyui/main/config/provisioning/default.sh
+# https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/config/provisioning/default.sh
 
 # Packages are installed after nodes so we can fix them...
 

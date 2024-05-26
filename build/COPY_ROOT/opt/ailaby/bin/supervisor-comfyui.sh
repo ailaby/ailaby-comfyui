@@ -15,7 +15,7 @@ function cleanup() {
 }
 
 function start() {
-    source /opt/ai-dock/etc/environment.sh
+    source /opt/ailaby/etc/environment.sh
     if [[ ! -v COMFYUI_PORT || -z $COMFYUI_PORT ]]; then
         COMFYUI_PORT=${COMFYUI_PORT_HOST:-8188}
     fi
@@ -48,7 +48,7 @@ function start() {
             printf "Waiting for workspace sync...\n"
             fuser -k -SIGKILL ${LISTEN_PORT}/tcp > /dev/null 2>&1 &
             wait -n
-            /usr/bin/python3 /opt/ai-dock/fastapi/logviewer/main.py \
+            /usr/bin/python3 /opt/ailaby/fastapi/logviewer/main.py \
                 -p $LISTEN_PORT \
                 -r 5 \
                 -s "${SERVICE_NAME}" \

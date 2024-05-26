@@ -12,7 +12,7 @@ function cleanup() {
 }
 
 function start() {
-    source /opt/ai-dock/etc/environment.sh
+    source /opt/ailaby/etc/environment.sh
     if [[ ${SERVERLESS,,} = "true" ]]; then
         printf "Refusing to start hosted API service in serverless mode\n"
         exec sleep 10
