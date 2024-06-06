@@ -3,8 +3,47 @@
 source /opt/ailaby/etc/environment.sh
 
 build_common_main() {
+    install_fonts
     build_common_create_env
     build_common_install_jupyter_kernels
+}
+
+# Define a function to install fonts
+install_fonts() {
+    # Update package list
+    apt-get update
+
+    $APT_INSTALL fontconfig
+
+    # Check if fonts are already installed
+    if fc-list | grep -qi "arial"; then
+        echo "Microsoft Core Fonts already installed."
+        return
+    fi
+
+    echo "Installing Microsoft Core Fonts..."
+
+    # Set DEBIAN_FRONTEND to noninteractive
+    export DEBIAN_FRONTEND=noninteractive
+
+    # Automatically accept Microsoft EULA agreement
+    echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+
+    # Install ttf-mscorefonts-installer
+    $APT_INSTALL ttf-mscorefonts-installer
+
+    # Reset DEBIAN_FRONTEND
+    unset DEBIAN_FRONTEND
+
+    # Update font cache
+    fc-cache -f -v
+
+    # Check font installation
+    if fc-list | grep -qi "arial"; then
+        echo "Microsoft Core Fonts installed successfully."
+    else
+        echo "Failed to install Microsoft Core Fonts."
+    fi
 }
 
 build_common_create_env() {
@@ -37,7 +76,6 @@ build_common_create_env() {
     micromamba run -n serverless $PIP_INSTALL \
         runpod
 }
-
 
 build_common_install_jupyter_kernels() {
     kernel_path=/usr/local/share/jupyter/kernels
