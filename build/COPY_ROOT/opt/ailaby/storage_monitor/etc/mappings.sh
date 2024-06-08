@@ -22,4 +22,12 @@ storage_map["stable_diffusion/models/unet"]="/opt/ComfyUI/models/unet"
 storage_map["stable_diffusion/models/vae"]="/opt/ComfyUI/models/vae"
 storage_map["stable_diffusion/models/vae_approx"]="/opt/ComfyUI/models/upscale_models"
 
+storage_map["stable_diffusion/models/animatediff_models"]="/opt/ComfyUI/models/animatediff_models"
+storage_map["stable_diffusion/models/animatediff_motion_lora"]="/opt/ComfyUI/models/animatediff_motion_lora"
+storage_map["stable_diffusion/models/facerestore_models"]="/opt/ComfyUI/models/facerestore_models"
+storage_map["stable_diffusion/models/mmdets"]="/opt/ComfyUI/models/mmdets"
+storage_map["stable_diffusion/models/onnx"]="/opt/ComfyUI/models/onnx"
+storage_map["stable_diffusion/models/photomaker"]="/opt/ComfyUI/models/photomaker"
+storage_map["stable_diffusion/models/sams"]="/opt/ComfyUI/models/sams"
+
 # Add more mappings for other repository directories as needed
