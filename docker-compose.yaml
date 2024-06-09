@@ -15,6 +15,9 @@ services:
 
     image: ghcr.io/ailaby/ailaby-comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.3.0}-py3.10-cuda-12.1.1-runtime-22.04}
 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
     ## For Nvidia GPU's - You probably want to uncomment this
     deploy:
       resources:
