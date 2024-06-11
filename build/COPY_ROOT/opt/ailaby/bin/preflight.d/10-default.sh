@@ -16,7 +16,7 @@ function preflight_serverless() {
 function preflight_copy_notebook() {
     if micromamba env list | grep 'jupyter' > /dev/null 2>&1;  then
         if [[ ! -f "${WORKSPACE}comfyui.ipynb" ]]; then
-            cp /usr/local/share/ailaby/ailaby-comfyui.ipynb ${WORKSPACE}
+            cp /usr/local/share/ailaby/comfyui.ipynb ${WORKSPACE}
         fi
     fi
 }

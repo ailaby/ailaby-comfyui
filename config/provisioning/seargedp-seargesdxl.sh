@@ -2,7 +2,7 @@
 
 # This file will be sourced in init.sh
 
-# https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/config/provisioning/seargedp-seargesdxl.sh
+# https://raw.githubusercontent.com/ailaby/comfyui/main/config/provisioning/seargedp-seargesdxl.sh
 
 # Download SeargeSDXL and the required model files if they do not already exist
 

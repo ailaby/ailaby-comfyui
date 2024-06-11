@@ -9,11 +9,11 @@ services:
         PYTORCH_VERSION: ${PYTORCH_VERSION:-2.3.0}
         COMFYUI_SHA: ${COMFYUI_SHA:-}
         # Base on Python image which is base + python + jupyter
-        IMAGE_BASE: ${IMAGE_BASE:-ghcr.io/ailaby/ailaby-python:${PYTHON_VERSION:-3.10}-cuda-12.1.1-runtime-22.04}
+        IMAGE_BASE: ${IMAGE_BASE:-ghcr.io/ailaby/python:${PYTHON_VERSION:-3.10}-cuda-12.1.1-runtime-22.04}
       tags:
-        - "ghcr.io/ailaby/ailaby-comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.3.0}-py3.10-cuda-12.1.1-runtime-22.04}"
+        - "ghcr.io/ailaby/comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.3.0}-py3.10-cuda-12.1.1-runtime-22.04}"
 
-    image: ghcr.io/ailaby/ailaby-comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.3.0}-py3.10-cuda-12.1.1-runtime-22.04}
+    image: ghcr.io/ailaby/comfyui:${IMAGE_TAG:-pytorch-${PYTORCH_VERSION:-2.3.0}-py3.10-cuda-12.1.1-runtime-22.04}
 
     extra_hosts:
       - "host.docker.internal:host-gateway"

@@ -1,9 +1,9 @@
 # For build automation - Allows building from any ailaby base image
 # Use a *cuda*base* image as default because pytorch brings the libs
-ARG IMAGE_BASE="ghcr.io/ailaby/ailaby-python:3.10-cuda-12.1.1-runtime-22.04"
+ARG IMAGE_BASE="ghcr.io/ailaby/python:3.10-cuda-12.1.1-runtime-22.04"
 FROM ${IMAGE_BASE}
 
-LABEL org.opencontainers.image.source=https://github.com/ailaby/ailaby-comfyui
+LABEL org.opencontainers.image.source=https://github.com/ailaby/comfyui
 LABEL org.opencontainers.image.description="ComfyUI Stable Diffusion backend and GUI"
 LABEL maintainer="voidump <voidump@gmailcom>"
 

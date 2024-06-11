@@ -1,4 +1,4 @@
-[![Docker Build](https://github.com/ailaby/ailaby-comfyui/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ailaby/ailaby-comfyui/actions/workflows/docker-build.yml)
+[![Docker Build](https://github.com/ailaby/comfyui/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ailaby/comfyui/actions/workflows/docker-build.yml)
 
 # AILaby + ComfyUI Docker Image
 
@@ -29,7 +29,7 @@ Tags follow these patterns:
 - `:cpu-[ubuntu-version]`
 
 
-Browse [here](https://github.com/ailaby/ailaby-comfyui/pkgs/container/comfyui) for an image suitable for your target environment.
+Browse [here](https://github.com/ailaby/comfyui/pkgs/container/comfyui) for an image suitable for your target environment.
 
 
 Supported Platforms: `NVIDIA CUDA`, `AMD ROCm`, `CPU`
@@ -78,7 +78,7 @@ This service is available on port `8188` and is used to test the [RunPod serverl
 
 You can access the api directly at `/rp-api/runsync` or you can use the Swager/openAPI playground at `/rp-api`.
 
-There are several [example payloads](https://github.com/ailaby/ailaby-comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads) included in this repository.
+There are several [example payloads](https://github.com/ailaby/comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads) included in this repository.
 
 This API is available on all platforms - But the container can ony run in serverless mode on RunPod infrastructure.
 
@@ -87,7 +87,7 @@ To learn more about the serverless API see the [serverless section](#runpod-serv
 <details>
   <summary>API Playground</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api1.png">
+    <img src="https://raw.githubusercontent.com/ailaby/comfyui/main/.github/images/api1.png">
 </details>
 
 >[!NOTE]
@@ -123,7 +123,7 @@ You should set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_ENDPOINT_URL` 
 <details>
   <summary>Serverless template example</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/runpod-template.png">
+    <img src="https://raw.githubusercontent.com/ailaby/comfyui/main/.github/images/runpod-template.png">
 </details>
 
 If passed in the payload these variables should be in lowercase.
@@ -149,9 +149,9 @@ This is the most flexible of all handlers.
 <details>
   <summary>RawWorkflow schema</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api-schema-rawworkflow.png">
+    <img src="https://raw.githubusercontent.com/ailaby/comfyui/main/.github/images/api-schema-rawworkflow.png">
     <br>
-    <a target="_blank" href="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/raw_controlnet_t2i_adapters.json">Example payload</a>
+    <a target="_blank" href="https://raw.githubusercontent.com/ailaby/comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/raw_controlnet_t2i_adapters.json">Example payload</a>
 </details>
 
 
@@ -164,9 +164,9 @@ You can define several overrides to modify the workflow before processing.
 <details>
   <summary>Text2Image schema</summary>
     <br>
-    <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api-schema-text2image.png">
+    <img src="https://raw.githubusercontent.com/ailaby/comfyui/main/.github/images/api-schema-text2image.png">
     <br>
-    <a target="_blank" href="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_text2image.json">Example payload</a>
+    <a target="_blank" href="https://raw.githubusercontent.com/ailaby/comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_text2image.json">Example payload</a>
 
 </details>
 
@@ -179,11 +179,11 @@ You can define several overrides to modify the workflow before processing.
 <details>
   <summary>Image2Image schema</summary>
   <br>
-  <img src="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/.github/images/api-schema-text2image.png">
+  <img src="https://raw.githubusercontent.com/ailaby/comfyui/main/.github/images/api-schema-text2image.png">
   <br>
-  <a target="_blank" href="https://raw.githubusercontent.com/ailaby/ailaby-comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_image2image.json">Example payload</a>
+  <a target="_blank" href="https://raw.githubusercontent.com/ailaby/comfyui/main/build/COPY_ROOT/opt/serverless/docs/example_payloads/bound_image2image.json">Example payload</a>
 </details>
 
 These handlers demonstrate how you can create a simple endpoint which will require very little frontend work to implement.
 
-You can find example payloads for these handlers [here](https://github.com/ailaby/ailaby-comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads)
+You can find example payloads for these handlers [here](https://github.com/ailaby/comfyui/tree/main/build/COPY_ROOT/opt/serverless/docs/example_payloads)
