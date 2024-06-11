@@ -90,19 +90,26 @@ function build_extra_get_nodes() {
         dir="${repo##*/}"
         path="/opt/ComfyUI/custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
+        requirements_post="${path}/requirements_post.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then
                 printf "Updating node: %s...\n" "${repo}"
                 ( cd "$path" && git pull )
                 if [[ -e $requirements ]]; then
-                    micromamba -n comfyui run ${PIP_INSTALL} -r "$requirements"
+                    ( cd "$path" && micromamba -n comfyui run ${PIP_INSTALL} -r "$requirements")
+                fi
+                if [[ -e $requirements_post ]]; then
+                    ( cd "$path" && micromamba -n comfyui run ${PIP_INSTALL} -r "$requirements_post")
                 fi
             fi
         else
             printf "Downloading node: %s...\n" "${repo}"
             git clone "${repo}" "${path}" --recursive
             if [[ -e $requirements ]]; then
-                micromamba -n comfyui run ${PIP_INSTALL} -r "${requirements}"
+                ( cd "$path" && micromamba -n comfyui run ${PIP_INSTALL} -r "${requirements}")
+            fi
+            if [[ -e $requirements_post ]]; then
+                ( cd "$path" && micromamba -n comfyui run ${PIP_INSTALL} -r "${requirements_post}")
             fi
         fi
     done
