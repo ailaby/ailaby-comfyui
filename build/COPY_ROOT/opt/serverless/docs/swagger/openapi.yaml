@@ -204,7 +204,7 @@ paths:
                                                 items:
                                                     type: object
                                                     properties:
-                                                        local_path:
+                                                        filepath:
                                                             type: string
                                                             description: File location on local disk
                                                             example: /opt/ComfyUI/output/<request_id>/ComfyUI__1.png

@@ -1,4 +1,5 @@
 from handlers.basehandler import BaseHandler
+from handlers.s3basehandler import S3BaseHandler
 
 """
 Handler classes are generally bound to a specific workflow file.
@@ -10,19 +11,18 @@ downloading any URL's to the input directory and replacing the URL with a local 
 Any other modifications you need, such as randomising seeds should be done before submitting.
 """
 
-class RawWorkflow(BaseHandler):
-    
-    WORKFLOW_JSON = None
-    
+
+class RawWorkflow(S3BaseHandler):
+    WORKFLOW_FILE = None
+
     def __init__(self, payload):
-        super().__init__(payload, self.WORKFLOW_JSON)
+        super().__init__(payload, self.WORKFLOW_FILE)
         self.apply_modifiers()
-        
 
     def apply_modifiers(self):
         self.prompt = self.replace_urls(self.prompt)
 
-        
+
 """
 aws_* values can alternatively be set as AWS_* environment variables
 Example Request Body:
@@ -138,4 +138,3 @@ Example Request Body:
 }
 
 """
-           

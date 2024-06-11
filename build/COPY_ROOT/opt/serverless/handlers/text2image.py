@@ -2,6 +2,7 @@ from handlers.basehandler import BaseHandler
 import random
 import time
 
+from handlers.s3basehandler import S3BaseHandler
 
 """
 Handler classes are generally bound to a specific workflow file.
@@ -11,20 +12,19 @@ One exception - RawWorkflow will send payload['workflow_json'] to the ComfyUI AP
 downloading any URL's to the input directory and replacing the URL with a local path.
 """
 
-class Text2Image(BaseHandler):
-    
-    WORKFLOW_JSON = "/opt/serverless/workflows/text2image.json"
-    
+
+class Text2Image(S3BaseHandler):
+    WORKFLOW_FILE = "/opt/serverless/workflows/text2image.json"
+
     def __init__(self, payload):
-        super().__init__(payload, self.WORKFLOW_JSON)
+        super().__init__(payload, self.WORKFLOW_FILE)
         self.apply_modifiers()
-        
 
     def apply_modifiers(self):
         timestr = time.strftime("%Y%m%d-%H%M%S")
         self.prompt["prompt"]["3"]["inputs"]["seed"] = self.get_value(
             "seed",
-            random.randint(0,2**32))
+            random.randint(0, 2 ** 32))
         self.prompt["prompt"]["3"]["inputs"]["steps"] = self.get_value(
             "steps",
             20)
@@ -53,8 +53,7 @@ class Text2Image(BaseHandler):
             "exclude_text",
             "")
 
-        
-        
+
 """
 Example Request Body:
 
@@ -80,4 +79,3 @@ Example Request Body:
 }
 
 """
-           
