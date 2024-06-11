@@ -8,7 +8,8 @@ PYTHON_PACKAGES=(
 )
 
 NODES=(
-    #"https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/ltdrdata/ComfyUI-Manager"
+    "https://github.com/comfypod/ComfyUI-Comflow"
 )
 
 CHECKPOINT_MODELS=(
